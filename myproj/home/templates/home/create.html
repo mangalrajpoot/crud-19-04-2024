@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <a href="{% url 'read' %}">View All Record</a>
+    <form action="" method="post">
+        {% csrf_token %}
+Fullname <input type="text" name="fullname" id=""><br>
+Gender <input type="radio" value="Male" name="g" id="">Male
+<input type="radio" value="Female" name="g" id="">Female <br>
+Email Address <input type="email" name="email" id=""><br>
+Course 
+<input type="checkbox" value="HTML" name="c" id="">HTML
+<input type="checkbox" value="CSS" name="c" id="">CSS
+<input type="checkbox" value="Java Script" name="c" id="">Java Script <br>
+City 
+<select name="city" id="">
+    <option value="">Select Your City</option>
+    <option value="Indore">Indore</option>
+    <option value="Bhopal">Bhopal</option>
+    <option value="Ujjain">Ujjain</option>
+    <option value="Itarshi">Itarshi</option>
+</select>
+<br>
+<input type="submit" value="Create Account">
+
+
+
+    </form>
+    {{m}}
+    
+</body>
+</html>

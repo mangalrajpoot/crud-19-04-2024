@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'create' %}">Create New Record</a>
+
+    <table border="1">
+        <tr>
+            <th>S.No.</th>
+            <th>FullName</th>
+            <th>Gender</th>
+            <th>Email Address</th>
+            <th>Course</th>
+            <th>City</th>
+            <th>Action</th>
+            <th>Action</th>
+           
+        </tr>
+        {% for x in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{x.fullname}}</td>
+            <td>{{x.gender}}</td>
+            <td>{{x.email}}</td>
+            <td>{{x.course}}</td>
+            <td>{{x.city}}</td>
+            <td><a href="edit?q={{x.id}}">Edit</a></td>
+            <td><a href="delete?q={{x.id}}">Delete</a></td>
+            
+        </tr>
+        {% endfor %}
+
+
+
+    </table>
+    
+</body>
+</html>

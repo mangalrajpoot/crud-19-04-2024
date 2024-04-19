@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <!-- Display error messages if any -->
+      <h1>Are you sure want to delete record?</h1>
+        <!-- Use label tags for better accessibility -->
+        <label for="fullname">Fullname:</label>
+        <input type="text" name="fullname" readonly value="{{ data.fullname }}" id="fullname"><br>
+        Email Address <input type="email" readonly name="email" value="{{data.email}}" id=""><br>
+        <label>Gender:</label><br>
+        <!-- Display current gender and provide options to change -->
+        <input type="radio" value="Male" name="g" id="male" {% if data.gender == 'Male' %} checked {% endif %}>Male<br>
+        <input type="radio" value="Female" name="g" id="female" {% if data.gender == 'Female' %} checked {% endif %}>Female<br>
+
+        <label>Course:</label><br>
+        <!-- Display current course and provide options to change -->
+        <input type="checkbox" value="HTML" name="c" id="HTML" {% if 'HTML' in data.course %}checked{% endif %}>HTML<br>
+        <input type="checkbox" value="CSS" name="c" id="science" {% if 'CSS' in data.course %}checked{% endif %}>CSS<br>
+        <input type="checkbox" value="Java Script" name="c" id="science" {% if 'Java Script' in data.course %}checked{% endif %}>Java Script<br>
+        
+
+        <label for="city">City:</label>
+        <!-- Display current city and provide option to change -->
+        <select name="city" id="city">
+            <option value="Indore" {% if data.city == 'Indore' %}selected{% endif %}>Indore</option>
+            <option value="Bhopal" {% if data.city == 'Bhopal' %}selected{% endif %}>Bhopal</option>
+            <option value="Ujjain" {% if data.city == 'Ujjain' %}selected{% endif %}>Ujjain</option>
+            <!-- Add more options as needed -->
+        </select><br>
+
+        <input type="submit" value="Delete">
+        
+    </form>
+    <a href="read">Go Back</a>
+</body>
+</html>
